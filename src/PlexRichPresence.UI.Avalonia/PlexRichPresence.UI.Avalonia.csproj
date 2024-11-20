@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <!--Avalonia doesen't support TrimMode=link currently,but we are working on that https://github.com/AvaloniaUI/Avalonia/issues/6892 -->
+        <TrimMode>copyused</TrimMode>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <Version>2.0.10</Version>
+    </PropertyGroup>
+    <ItemGroup>
+        <Content Include="plexrichpresence.desktop" CopyToPublishDirectory="Always">
+            <LinuxPath>/usr/share/applications/plexrichpresence.desktop</LinuxPath>
+        </Content>
+        <Content Include="Assets/avalonia-logo.ico" CopyToPublishDirectory="Always">
+
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Models\" />
+        <AvaloniaResource Include="Assets\**" />
+        <None Remove=".gitignore" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <TrimmableAssembly Include="Avalonia.Themes.Fluent" />
+        <TrimmableAssembly Include="Avalonia.Themes.Default" />
+    </ItemGroup>
+
+</Project>
